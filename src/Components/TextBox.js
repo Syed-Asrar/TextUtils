@@ -1,27 +1,32 @@
 import React, { useState } from 'react';
 
 export default function TextBox(props) {
-  console.log('2',props)
+
   const upperCaseClick = ()=>{
-      setText(text.toUpperCase())
+      setText(text.toUpperCase());
+      props.showAlert("success","Text converted to uppercase characters!");
   }
   const lowerCaseClick = ()=>{
-    setText(text.toLowerCase())
+    setText(text.toLowerCase());
+    props.showAlert("success","Text converted to lowercase characters!");
   }
   const clearClick =()=>{
     setText("");
+    props.showAlert("success","Text Cleared!");
   }
   const onChangeHandler = (event)=>{
     setText(event.target.value);
   }
   const removeSpacesClick = (event)=>{
     let textArea = text.split(/[ ]+/);
+    props.showAlert("success","Extra spaces removed!");
     setText(textArea.join(" "));
   }
   const copyClick = ()=>{
     var text = document.getElementById("my box");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("success","Text Copied to clipboard!");
   }
   const [text, setText] = useState("");
   return (
@@ -37,11 +42,12 @@ export default function TextBox(props) {
         <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"} mx-3`} onClick={copyClick}>Copy text</button>
         <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"}`} onClick={removeSpacesClick}>Remove Extra Spaces</button>
     </div>
-    <div>
-			<p className={`my-3 text-${(props.mode==="light")?"dark":"light"}`}>This text contains {(text==="")?0:text.split(" ").length} words.<br/>
-        This text contains {text.length} characters.</p>
-      <h3 className={`my-3 text-${(props.mode==="light")?"dark":"light"}`}>This text's Context is</h3>
-      <p className={`my-3 text-${(props.mode==="light")?"dark":"light"}`}>{text}</p>
+    <div className="container my-3" style={{color: (props.mode==="light")?"black":"white"}}>
+      <h2>Summary of the text</h2>
+			<p>{(text==="")?0:text.split(" ").length} words, {text.length} characters.</p>
+      <p>{0.008 * (text===""?0:text.split(" ").length)} minutes read</p>
+      <h4>Preview</h4>
+      <p>{text}</p>
 		</div>
     </>
   )
