@@ -24,7 +24,7 @@ function App() {
     }
     else{
       setMode("light");
-      document.body.style.backgroundColor="#c6e7e4";
+      document.body.style.backgroundColor="white";
       showAlert("success", "Lightmode Enabled!")
     }
   }
