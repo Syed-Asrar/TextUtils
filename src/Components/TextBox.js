@@ -31,16 +31,16 @@ export default function TextBox(props) {
   const [text, setText] = useState("");
   return (
     <>
-    <div className="my-3">
+    <div>
         <h1 className={`my-3 text-${(props.mode==="light")?"dark":"light"}`}>{props.heading}</h1>
         <div className="mb-3">
             <textarea className={`form-control bg-${(props.mode==="dark")?"dark":"light"} text-${(props.mode==="light")?"dark":"light"}`} id="my box" value={text} onChange={onChangeHandler} rows="6"></textarea>
         </div>
-        <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"}`} onClick={upperCaseClick}>Convert to uppercase</button>
-        <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"} mx-3`} onClick={lowerCaseClick}>Convert to Lowercase</button>
-        <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"}`} onClick={clearClick}>Clear field</button>
-        <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"} mx-3`} onClick={copyClick}>Copy text</button>
-        <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"}`} onClick={removeSpacesClick}>Remove Extra Spaces</button>
+        <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"} my-3`} onClick={upperCaseClick}>Convert to uppercase</button>
+        <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"} mx-3 my-3`} onClick={lowerCaseClick}>Convert to Lowercase</button>
+        <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"} my-3`} onClick={clearClick}>Clear field</button>
+        <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"} mx-3 my-3`} onClick={copyClick}>Copy text</button>
+        <button className={`btn btn-${(props.mode==="light")?"primary":"secondary"} my-3`} onClick={removeSpacesClick}>Remove Extra Spaces</button>
     </div>
     <div className="container my-3" style={{color: (props.mode==="light")?"black":"white"}}>
       <h2>Summary of the text</h2>
