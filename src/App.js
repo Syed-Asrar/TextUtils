@@ -7,7 +7,6 @@ import Alert from './Components/Alert';
 function App() {
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState();
-
   const showAlert = (type, message)=>{
     setAlert({
       type : type,
@@ -30,12 +29,13 @@ function App() {
     }
   }
   return (
-    <div >
+    <div>
       <Navbar title="TextUtility" about="About us" mode={mode} toggle={toggleSwitch}></Navbar>
       <Alert alert={alert}></Alert>
       <div className="container">
       <TextBox heading="Enter the text" mode={mode} showAlert={showAlert}/>
       </div>
+      
     </div>
   );
 }
