@@ -31,7 +31,7 @@ export default function TextBox(props) {
   const [text, setText] = useState("");
   return (
     <>
-    <div>
+    <div className="my-3">
         <h1 className={`my-3 text-${(props.mode==="light")?"dark":"light"}`}>{props.heading}</h1>
         <div className="mb-3">
             <textarea className={`form-control bg-${(props.mode==="dark")?"dark":"light"} text-${(props.mode==="light")?"dark":"light"}`} id="my box" value={text} onChange={onChangeHandler} rows="6"></textarea>
